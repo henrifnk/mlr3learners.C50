@@ -2,7 +2,7 @@
 % Please edit documentation in R/LearnerClassifC50.R
 \name{mlr_learners_classif.C50}
 \alias{mlr_learners_classif.C50}
-\alias{LearnerClassifC5.0}
+\alias{LearnerClassifC50}
 \title{Classification C50 Learner}
 \description{
 A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a classification random from package \CRANpkg{C50}.
@@ -19,8 +19,8 @@ C4.5: Programs for Machine Learning
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{LearnerClassifC5.0$new()}}
-\item \href{#method-clone}{\code{LearnerClassifC5.0$clone()}}
+\item \href{#method-new}{\code{LearnerClassifC50$new()}}
+\item \href{#method-clone}{\code{LearnerClassifC50$clone()}}
 }
 }
 \if{html}{
@@ -42,7 +42,7 @@ C4.5: Programs for Machine Learning
 \subsection{Method \code{new()}}{
 Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC5.0$new(id = "classif.C50")}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC50$new(id = "classif.C50")}\if{html}{\out{</div>}}
 }
 
 }
@@ -52,7 +52,7 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC5.0$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC50$clone(deep = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

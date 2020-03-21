@@ -1,7 +1,7 @@
 context("classif.C50")
 
 test_that("autotest", {
-  learner = LearnerClassifC5.0$new()
+  learner = LearnerClassifC50$new()
   learner$param_set$values = list(trials = 30L)
   expect_learner(learner)
   result = run_autotest(learner)

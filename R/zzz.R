@@ -18,5 +18,5 @@ dummy_import = function() {
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
 
   # add the learner to the dictionary
-  x$add("classif.C50", LearnerClassifC5.0)
+  x$add("classif.C50", LearnerClassifC50)
 } # nocov end

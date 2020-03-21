@@ -12,7 +12,7 @@
 #' \url{http://www.rulequest.com/see5-unix.html}
 #'
 #' @export
-LearnerClassifC5.0 = R6Class("LearnerClassifC50",
+LearnerClassifC50 = R6Class("LearnerClassifC50",
   inherit = LearnerClassif,
   public = list(
     #' @description
