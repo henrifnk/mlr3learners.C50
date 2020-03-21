@@ -18,10 +18,10 @@ LearnerClassifC5.0 = R6Class("LearnerClassifC50",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id = "classif.C50") {
-      ps = ParamSet$new( # parameter set using the paradox package
+      ps = ParamSet$new(
         params = list(
-          ParamInt$new(id = "trials", default = 1L, lower = 1L, tags = c("train", "predict")),
-          ParamLgl$new(id = "rules", default = FALSE, tags = "train"),
+          ParamInt$new(id = "trials", default = 1L, lower = 1L, tags = c("train", "pars", "predict")),
+          ParamLgl$new(id = "rules", default = FALSE, tags = c("train", "pars")),
           ParamLgl$new(id = "subset", default = FALSE, tags = c("train", "C5.0Control")),
           ParamInt$new(id = "bands", lower = 2L, upper = 1000L, tags = c("train", "C5.0Control")),
           ParamLgl$new(id = "winnow", default = FALSE, tags = c("train", "C5.0Control")),
@@ -35,11 +35,9 @@ LearnerClassifC5.0 = R6Class("LearnerClassifC50",
           ParamUty$new(id = "label", default = "outcome", tags = c("train", "C5.0Control"))
         )
       )
-      # bands depends on rules being TRUE
       ps$add_dep("bands", "rules", CondEqual$new(TRUE))
       
       super$initialize(
-        # see the mlr3book for a description: https://mlr3book.mlr-org.com/extending-mlr3.html
         id = id,
         packages = "C50",
         feature_types = c("numeric", "factor", "ordered"),
@@ -54,15 +52,12 @@ LearnerClassifC5.0 = R6Class("LearnerClassifC50",
 
   private = list(
     .train = function(task) {
-      # Extrakt Control Parameters from Param List to call them separatly
       c5control = do.call(C50::C5.0Control,
                           self$param_set$get_values(tags = "C5.0Control"))
       
-      pars = self$param_set$get_values(tags = "train")
-      # Get formula, data, classwt, cutoff for the randomForest
-      f = task$formula() #the formula is available in the task
-      data = task$data() #the data is avail
-      # use the mlr3misc::invoke function (it's similar to do.call())
+      pars = self$param_set$get_values(tags = "pars")
+      f = task$formula()
+      data = task$data()
       invoke(C50::C5.0.formula, formula = f, data = data, control = c5control, .args = pars)
     },
 
@@ -70,7 +65,7 @@ LearnerClassifC5.0 = R6Class("LearnerClassifC50",
       response = NULL
       prob = NULL
       pars = self$param_set$get_values(tags = "predict")
-      newdata = task$data(cols = task$feature_names) # get newdata
+      newdata = task$data(cols = task$feature_names)
       
       if (self$predict_type == "response") {
         response = invoke(predict, self$model, newdata = newdata,
@@ -79,8 +74,7 @@ LearnerClassifC5.0 = R6Class("LearnerClassifC50",
         prob = invoke(predict, self$model, newdata = newdata,
                           type = "prob", .args = pars)
       }
-
-      # Return a prediction object with PredictionClassif$new()
+      
       PredictionClassif$new(task = task, response = response, prob = prob)
     }
     )
