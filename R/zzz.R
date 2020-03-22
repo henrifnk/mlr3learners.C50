@@ -27,7 +27,7 @@ register_mlr3 <- function(libname, pkgname) {
   hooks <- getHook(event)
   pkgname <- vapply(hooks, function(x) environment(x)$pkgname, NA_character_)
   setHook(event, hooks[pkgname != "mlr3learners.mboost"],
-    action = "replace"
+          action = "replace"
   )
 }
 # nocov end
