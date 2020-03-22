@@ -25,7 +25,7 @@ register_mlr3 <- function(libname, pkgname) {
 .onUnload <- function(libpath) {
   event <- packageEvent("mlr3", "onLoad")
   hooks <- getHook(event)
-  pkgname <- vapply(hooks, function(x) environment(x)$mlr3learners.C50, NA_character_)
+  pkgname <- vapply(hooks, function(x) environment(x)$pkgname, NA_character_)
   setHook(event, hooks[pkgname != "mlr3learners.mboost"],
     action = "replace"
   )
