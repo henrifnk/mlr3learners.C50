@@ -20,7 +20,7 @@ LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
-    initialize = function(id) {
+    initialize = function() {
       ps <- ParamSet$new(
         params = list(
           ParamInt$new(id = "trials", default = 1L, lower = 1L, tags = c("train", "pars", "predict")),
