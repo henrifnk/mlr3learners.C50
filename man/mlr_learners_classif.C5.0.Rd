@@ -50,7 +50,7 @@ C4.5: Programs for Machine Learning
 \subsection{Method \code{new()}}{
 Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC5.0$new(id)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LearnerClassifC5.0$new()}\if{html}{\out{</div>}}
 }
 
 }
