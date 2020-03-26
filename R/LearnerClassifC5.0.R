@@ -21,7 +21,7 @@ LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps <- ParamSet$new(
+      ps = ParamSet$new(
         params = list(
           ParamInt$new(id = "trials", default = 1L, lower = 1L, tags = c("train", "pars", "predict")),
           ParamLgl$new(id = "rules", default = FALSE, tags = c("train", "pars")),
@@ -61,20 +61,20 @@ LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
         self$param_set$get_values(tags = "C5.0Control")
       )
 
-      pars <- self$param_set$get_values(tags = "pars")
-      f <- task$formula()
-      data <- task$data()
+      pars = self$param_set$get_values(tags = "pars")
+      f = task$formula()
+      data = task$data()
       invoke(C50::C5.0.formula, formula = f, data = data, control = c5control, .args = pars)
     },
 
     .predict = function(task) {
-      response <- NULL
-      prob <- NULL
-      pars <- self$param_set$get_values(tags = "predict")
-      newdata <- task$data(cols = task$feature_names)
+      response = NULL
+      prob = NULL
+      pars = self$param_set$get_values(tags = "predict")
+      newdata = task$data(cols = task$feature_names)
 
       if (self$predict_type == "response") {
-        response <- invoke(predict, self$model,
+        response = invoke(predict, self$model,
           newdata = newdata,
           type = "class", .args = pars
         )
