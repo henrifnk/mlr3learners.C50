@@ -2,30 +2,25 @@ Package: mlr3learners.C50
 Title: C5.0 Learner for 'mlr3'
 Version: 0.1.0
 Authors@R:
-    c(person(given = "Henri",
-             family = "Funk",
-             role = "cre",
-             email = "henrifnk@gmail.com")
-      )
+    person(given = "Henri",
+           family = "Funk",
+           role = "cre",
+           email = "henrifnk@gmail.com")
 Description: C5.0 Learner for 'mlr3'.
 License: LGPL-3
 Depends:
     R (>= 3.1.0)
 Imports:
-    R6,
+    C50,
     data.table,
     mlr3 (>= 0.1.7),
     mlr3misc,
     paradox,
-    C50
+    R6
 Suggests:
     checkmate,
-    testthat,
-    rmarkdown
-Remotes:
-    mlr-org/mlr3,
-    mlr-org/mlr3misc,
-    mlr-org/paradox
+    rmarkdown,
+    testthat
 Encoding: UTF-8
 NeedsCompilation: no
 Roxygen: list(markdown = TRUE)

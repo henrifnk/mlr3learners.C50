@@ -15,7 +15,7 @@
 #' \url{http://www.rulequest.com/see5-unix.html}
 #'
 #' @export
-LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
+LearnerClassifC5.0 = R6Class("LearnerClassifC5.0",
   inherit = LearnerClassif,
   public = list(
     #' @description
@@ -56,7 +56,7 @@ LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
 
   private = list(
     .train = function(task) {
-      c5control <- do.call(
+      c5control = do.call(
         C50::C5.0Control,
         self$param_set$get_values(tags = "C5.0Control")
       )
@@ -79,7 +79,7 @@ LearnerClassifC5.0 <- R6Class("LearnerClassifC5.0",
           type = "class", .args = pars
         )
       } else {
-        prob <- invoke(predict, self$model,
+        prob = invoke(predict, self$model,
           newdata = newdata,
           type = "prob", .args = pars
         )
