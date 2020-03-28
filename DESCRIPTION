@@ -1,6 +1,6 @@
 Package: mlr3learners.C50
 Title: C5.0 Learner for 'mlr3'
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R:
     person(given = "Henri",
            family = "Funk",
