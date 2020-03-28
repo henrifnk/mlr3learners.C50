@@ -1,5 +1,5 @@
-# mlr3learners.C50 "dev"
+# mlr3learners.C50 0.1.0
 
-- Internal changes only.
+- Initial release
 
 
