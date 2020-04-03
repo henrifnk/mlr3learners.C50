@@ -1,4 +1,4 @@
-library(mlr3learners.C50)
+library(mlr3learners.c50)
 
 test_that("classif.C5.0", {
   learner = lrn("classif.C5.0")
