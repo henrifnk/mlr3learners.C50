@@ -1,3 +1,8 @@
+# mlr3learners.c50 0.1.2.9000
+
+- Same as previous version.
+
+
 # mlr3learners.c50 0.1.2
 
 - Forgot to rename `man` slot in the constructor with new package name
